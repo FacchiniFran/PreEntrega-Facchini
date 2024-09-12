@@ -1,0 +1,29 @@
+.cart {
+    top: 2%;
+    right: 2%; 
+    opacity: 0.5;
+    display: flex;
+    padding-top: 4%;
+    grid-area: cart;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: min-content;
+    position: absolute;
+    border-radius: 18px;
+    background-color: black;
+}
+
+.cart:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.cart p {
+    color: white;
+    margin-left: 10%;
+    font-size: large;
+}
+
+.cart:hover p {
+    text-shadow: 0 0 10px white, 0 0 21px white, 0 0 42px #0050c1, 0 0 82px #0050c1, 0 0 92px #0050c1, 0 0 102px #0050c1, 0 0 151px #0050c1;
+}
