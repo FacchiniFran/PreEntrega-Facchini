@@ -1,15 +1,22 @@
-import './App.css'
-import NavBar from './components/NavBar.jsx'
-import ItemListContainer from './components/ItemListContainer.jsx'
+import './App.css';
+import HomeView from './views/HomeView/HomeView.jsx';
+import CategoriesView from './views/CategoriesView/CategoriesView.jsx';
+import AboutView from './views/AboutView/AboutView.jsx';
+import ProductView from './views/ProductView/ProductView.jsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
+export default function App() {
 
   return (
     <>
-      <NavBar />
-      <ItemListContainer greeting='Bienvenidos a Mana Gamers E-Shop'/>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path='/' element={<HomeView />} />
+          <Route exact path='/categorias/:categoria' element={<CategoriesView />} />
+          <Route exact path='/acercaDe' element={<AboutView />} />
+          <Route exact path='/producto/:id' element={<ProductView />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
-
-export default App

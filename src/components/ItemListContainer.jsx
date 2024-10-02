@@ -1,12 +1,26 @@
-function ItemListContainer({ greeting }) {
+import './ItemListContainer.css';
+import ProductCard from './productCard';
+import { useState, useEffect } from 'react';
+import { getProducts } from '../productList';
+
+export default function ItemListContainer({ greeting }) {
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        getProducts.then((data) => setProducts(data));
+    }, []);
 
     return (
         <>
-            <section className='w-auto p-3 bg-info position-absolute top-50 start-50 translate-middle rounded'>
-                <h1 className='text-center text-body-emphasis'>{greeting}</h1>
+            <section className>
+                <h1 className='mainTitle'>{greeting}</h1>
+                <div className='listContainer'>
+                    {products.map((product) => (
+                        <ProductCard key={product.id} product={product}></ProductCard>
+                    ))}
+                </div>
             </section>
         </>
     )
 }
-
-export default ItemListContainer

@@ -1,0 +1,45 @@
+.prodContainer {
+    left: 20%;
+    width: 60%;
+    display: flex;
+    margin-top: 1%;
+    position: absolute;
+    align-items: center;
+    border-radius: 18px;
+    flex-direction: column;
+    border: 2px solid white;
+    background-color: #3a3a3a;
+}
+
+.prodTitleDet {
+    margin: 1%;
+    color: white;
+    text-decoration: underline;
+}
+
+.categTitle {
+    color: white;
+    margin-top: 1%;
+    margin-bottom: 3%;
+}
+
+.prodImageDet {
+    max-width: 50%;
+    border-radius: 18px;
+    object-fit: contain;
+    border: 2px solid black;
+    filter: drop-shadow(0 0 2em #0050c1);
+}
+
+.priceDet {
+    margin-top: 2%;
+    color: white;
+    margin-bottom: 2%;
+}
+
+.description {
+    padding: 1%;
+    color: white;
+    font-size: large;
+    text-align: center;
+}

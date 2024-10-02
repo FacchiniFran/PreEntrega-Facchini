@@ -1,6 +1,6 @@
-import './CategoryButton.css'
+import './CategoryButton.css';
 
-function CategoryButton({category}) {
+export default function CategoryButton({category}) {
 
     return (
         <>
@@ -8,5 +8,3 @@ function CategoryButton({category}) {
         </>
     )
 }
-
-export default CategoryButton
