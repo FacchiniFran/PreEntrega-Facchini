@@ -1,4 +1,5 @@
 import './ProductCard.css';
+import BuyButtons from './BuyButtons';
 import { NavLink } from 'react-router-dom';
 
 export default function ProductCard({ product }) {
@@ -12,6 +13,7 @@ export default function ProductCard({ product }) {
         <button className='detButton'>
           <NavLink className='detButton' to={`/producto/${product.id}`}>Detalles</NavLink>
         </button>
+        <BuyButtons key={product.id} product={product}></BuyButtons>
       </article>
     </>
   );

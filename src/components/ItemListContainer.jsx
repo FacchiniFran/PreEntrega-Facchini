@@ -1,25 +1,21 @@
 import './ItemListContainer.css';
-import ProductCard from './productCard';
-import { useState, useEffect } from 'react';
-import { getProducts } from '../productList';
+import { useContext } from 'react';
+import ProductCard from './ProductCard.jsx';
+import { ItemListContext } from '../context/ItemListContext.jsx';
 
 export default function ItemListContainer({ greeting }) {
 
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        getProducts.then((data) => setProducts(data));
-    }, []);
+    const [products] = useContext(ItemListContext);
 
     return (
         <>
             <section className>
                 <h1 className='mainTitle'>{greeting}</h1>
-                <div className='listContainer'>
+                {<div className='listContainer'>
                     {products.map((product) => (
                         <ProductCard key={product.id} product={product}></ProductCard>
                     ))}
-                </div>
+                </div>}
             </section>
         </>
     )

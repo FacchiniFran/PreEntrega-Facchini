@@ -1,17 +1,18 @@
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import NavBar from '../../components/NavBar.jsx';
-import { getCategory } from '../../productList.js';
+import { useContext, useState, useEffect } from 'react';
+import ProductCard from '../../components/ProductCard.jsx';
+import { ItemListContext } from '../../context/ItemListContext.jsx';
 
 export default function AboutView() {
 
-    const [catList, setCatList] = useState([]);
-
     const { cat } = useParams();
+    const [catList, setCatlist] = useState([]);
+    const [products] = useContext(ItemListContext);
 
     useEffect(() => {
-        setCatList(getCategory(cat));
-    }, []);
+        setCatlist(products.filter((product) => product.category === cat));
+    }, [cat]);
 
     return (
         <>

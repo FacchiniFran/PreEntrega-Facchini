@@ -1,0 +1,32 @@
+.buttonsContainer {
+    display: inline-flex;
+    padding-right: 1%;
+}
+
+.buttonsContainer p {
+    color: black;
+    margin-left: 4%;
+    margin-right: 4%;
+    font-size: large;
+    padding-top: 25%;
+    font-weight: bold;
+}
+
+.prodContainer .buttonsContainer p {
+    color: white;
+}
+
+.handleButton {
+    color: white;
+    font-weight: bold;
+    align-self: center;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: #3a3a3a;
+}
+
+.prodContainer .handleButton{
+    color: black;
+    font-weight: bold;
+    background-color: white;
+}

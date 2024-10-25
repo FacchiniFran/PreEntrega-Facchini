@@ -3,11 +3,10 @@ header {
     height: 38%;
     display: grid;
     position: relative;
-    grid-template-areas: "logo title cart" "menu menu menu";
     background-size: cover;
-    grid-template-rows: 89.5% 10.5%;
     grid-template-columns: 13.5% 73% 13.5%;
     background-image: url('../images/headerBG.png');
+    grid-template-areas: "logo title cart" "menu menu menu";
 }
 
 .logo {
@@ -29,8 +28,9 @@ header {
 }
 
 .title {
-    height: 60%;
+    width: 100%;
     display: flex;
+    max-height: 60%;
     padding-left: 8%;
     grid-area: title;
     align-self: center;
@@ -44,6 +44,6 @@ header {
     opacity: 0.9;
     display: flex;
     grid-area: menu;
-    position: absolute;
+    position: relative;
     background-color: black;
 }
