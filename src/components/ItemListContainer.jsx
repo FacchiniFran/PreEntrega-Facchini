@@ -9,7 +9,7 @@ export default function ItemListContainer({ greeting }) {
 
     return (
         <>
-            <section className>
+            <section>
                 <h1 className='mainTitle'>{greeting}</h1>
                 {<div className='listContainer'>
                     {products.map((product) => (
