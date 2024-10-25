@@ -3,6 +3,7 @@ import BuyButtons from './BuyButtons';
 import { NavLink } from 'react-router-dom';
 
 export default function ProductCard({ product }) {
+
   return (
     <>
       <article className='prodCard'>
