@@ -1,5 +1,5 @@
 import NavBar from '../../components/NavBar.jsx';
-import ItemDetailContainer from '../../components/itemDetailContainer.jsx';
+import ItemDetailContainer from '../../components/ItemDetailContainer.jsx';
 
 export default function ProductView() {
 
