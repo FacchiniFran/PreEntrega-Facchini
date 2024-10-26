@@ -37,7 +37,7 @@ export default function CheckoutList() {
             },
             date: new Date(),
             products: shortCart,
-            total: 45000
+            total: totalPrice
         }
 
         console.log(newOrder);
