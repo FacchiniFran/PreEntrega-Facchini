@@ -51,16 +51,18 @@ export default function CheckoutList() {
     return (
         <>
             <section className='checkout'>
-                <h1>Carrito de compras</h1>
-                {<div className='listContainer'>
+                {<div className='checkListContainer'>
+                    <h1 className='checkMainTitle'>Carrito de compras</h1>
                     {cart.map((product) => (
                         <CheckoutCard key={product.id} product={product}></CheckoutCard>
                     ))}
                 </div>}
-                <p>Precio total: ${totalPrice}</p>
-                <CheckoutForm formData={formData} setFormData={setFormData} />
-                <button onClick={handleClickSend}>Completar Orden</button>
-                <button onClick={handleClickCleaner}>Limpiar Orden</button>
+                <div className='orderContainer'>
+                    <p className='totalPrice'>Precio total: ${totalPrice}</p>
+                    <CheckoutForm formData={formData} setFormData={setFormData} />
+                    <button onClick={handleClickSend}>Completar Orden</button>
+                    <button onClick={handleClickCleaner}>Limpiar Orden</button>
+                </div>
             </section>
         </>
     )

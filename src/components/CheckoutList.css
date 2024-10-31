@@ -1,3 +1,30 @@
-.checkout .listContainer {
+.checkout {
+    width: 100%;
+    display: grid;
+    position: relative;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: "checkListContainer orderContainer";
+}
+
+.checkListContainer {
+    display: flex;
+    position: relative;
     flex-direction: column;
+    flex-direction: column;
+    grid-area: checkListContainer;
+}
+
+.checkMainTitle {
+    color: white;
+    padding-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+    text-shadow: 0 0 42px #0050c1, 0 0 82px #0050c1, 0 0 92px #0050c1, 0 0 102px #0050c1, 0 0 151px #0050c1;
+}
+
+.orderContainer {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    grid-area: orderContainer;
 }

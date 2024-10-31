@@ -7,12 +7,14 @@ export default function CheckoutCard({ product }) {
     return (
         <>
             <article className='checkCard'>
-                <NavLink to={`/producto/${product.id}`}>
-                    <h4 className='checkTitle'>{product.title}</h4>
+                <h4 className='checkTitle'><NavLink className='checkLink' to={`/producto/${product.id}`}>{product.title}</NavLink></h4>
+                <NavLink className='checkImageLink' to={`/producto/${product.id}`}>
                     <img className='checkImage' src={product.image} alt={product.title} />
                 </NavLink>
-                <p className='checkQuantity'>{product.quantity}</p>
-                <p className='checkPrice'>$ {product.price}</p>
+                <div className='priceContainer'>
+                    <p className='checkPrice'>$ {product.price}</p>
+                    <p className='checkQuantity'>Cantidad: {product.quantity}</p>
+                </div>
                 <BuyButtons key={product.id} product={product}></BuyButtons>
             </article>
         </>
