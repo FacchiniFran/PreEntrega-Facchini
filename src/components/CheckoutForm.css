@@ -1,0 +1,28 @@
+.formTitle{
+    color: white;
+    padding-top: 5%;
+    margin-bottom: 2%;
+    text-align: center;
+    text-shadow: 0 0 42px #0050c1, 0 0 82px #0050c1, 0 0 92px #0050c1, 0 0 102px #0050c1, 0 0 151px #0050c1;
+}
+
+.checkForm {
+    width: 85%;
+    padding: 3%;
+    display: flex;
+    margin-top: 5%;
+    border-radius: 18px;
+    align-items: center;
+    flex-direction: column;
+    background-color: grey;
+    border: 3px solid white;
+}
+
+.checkForm label {
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.checkForm input {
+    text-align: center;
+}

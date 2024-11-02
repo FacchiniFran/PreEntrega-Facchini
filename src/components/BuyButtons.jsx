@@ -1,21 +1,21 @@
 import './BuyButtons.css';
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 export default function BuyButtons({product}) {
 
-    const [counter, setCounter] = useState(0);
-    const [, , addItem, removeItem] = useContext(CartContext);
+    const [cart, , addItem, removeItem] = useContext(CartContext);
+
+    const cartItem = cart.find(item => item.id === product.id);
+    const quantity = cartItem ? cartItem.quantity : 0;
 
     const handleClickAdd = () => {
         addItem(product);
-        setCounter(counter + 1);
     }
 
     const handleClickRemove = () => {
-        removeItem(product.id);
-        if (counter > 0) {
-            setCounter(counter - 1);
+        if (quantity > 0) {
+            removeItem(product.id);
         } else {
             console.log("No se puede quitar productos que no están en el carrito!");
         }
@@ -26,7 +26,7 @@ export default function BuyButtons({product}) {
         <>
             <section className='buttonsContainer'>
                 <button className='handleButton' onClick={handleClickRemove}>-</button>
-                <p>{counter}</p>
+                <p className='quantity'>{quantity}</p>
                 <button className='handleButton' onClick={handleClickAdd}>+</button>
             </section>
         </>

@@ -20,13 +20,12 @@ export default function CheckoutList() {
 
     useEffect(() => {
         setTotalPrice(cart.reduce((total, item) => total + (item.price * item.quantity || 0), 0));
-    }, [])
+    }, [cart])
 
     const shortCart = cart.map(({ shortDesc, description, stock, ...rest }) => ({
         ...rest
     }));
 
-    //Rellenar
     const handleClickSend = () => {
         const newOrder = {
             buyer: {
@@ -58,8 +57,8 @@ export default function CheckoutList() {
                     ))}
                 </div>}
                 <div className='orderContainer'>
-                    <p className='totalPrice'>Precio total: ${totalPrice}</p>
                     <CheckoutForm formData={formData} setFormData={setFormData} />
+                    <p className='totalPrice'>Precio total: ${totalPrice}</p>
                     <button onClick={handleClickSend}>Completar Orden</button>
                     <button onClick={handleClickCleaner}>Limpiar Orden</button>
                 </div>
