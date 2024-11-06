@@ -9,8 +9,8 @@ export default function NavBar() {
   return (
     <>
       <header>
-        <NavLink to='/' className='logo'><img src='../../images/logoMG.png' alt='Logo Image' /></NavLink>
-        <img className='title' src='../../images/manaGamersTitle.png' alt='Mana Gamers Title' />
+        <NavLink to='/' className='logo'><img src='https://i.ibb.co/C1gqGh7/logoMG.png' alt='Logo Image' /></NavLink>
+        <img className='title' src='https://i.ibb.co/Z12j9Gv/mana-Gamers-Title.png' alt='Mana Gamers Title' />
         <CartWidget />
         <nav className='menu'>
           <NavLink to='/categorias/consolas'><CategoryButton category='Consolas' /></NavLink>
