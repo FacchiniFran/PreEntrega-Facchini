@@ -1,4 +1,5 @@
 import './CheckoutList.css';
+import Swal from 'sweetalert2';
 import CheckoutCard from './CheckoutCard';
 import CheckoutForm from './CheckoutForm';
 import { sendOrder } from '../firebase/firebase';
@@ -8,6 +9,7 @@ import { useContext, useState, useEffect } from 'react';
 
 export default function CheckoutList() {
 
+    const [orderId, setOrderId] = useState(null);
     const [totalPrice, setTotalPrice] = useState(0);
     const [formData, setFormData] = useState({
         name: '',
@@ -41,10 +43,26 @@ export default function CheckoutList() {
 
         console.log(newOrder);
         sendOrder(newOrder).then((id) => setOrderId(id));
+
+        Swal.fire({
+            position: "top",
+            icon: "success",
+            title: "Se ha generado la orden: " + orderId,
+            showConfirmButton: false,
+            timer: 2000
+        });
     }
 
     const handleClickCleaner = () => {
         clearCart();
+
+        Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Se han quitado todos los elementos del carrito.",
+            showConfirmButton: false,
+            timer: 2000
+        });
     }
 
     return (
@@ -58,9 +76,9 @@ export default function CheckoutList() {
                 </div>}
                 <div className='orderContainer'>
                     <CheckoutForm formData={formData} setFormData={setFormData} />
-                    <p className='totalPrice'>Precio total: ${totalPrice}</p>
-                    <button onClick={handleClickSend}>Completar Orden</button>
-                    <button onClick={handleClickCleaner}>Limpiar Orden</button>
+                    <h4 className='totalPrice'>Precio total: ${totalPrice}</h4>
+                    <button className='orderFinalButton' onClick={handleClickSend}>Completar Orden</button>
+                    <button className='orderFinalButton' onClick={handleClickCleaner}>Limpiar Orden</button>
                 </div>
             </section>
         </>

@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { createContext, useState } from "react";
 
 export const CartContext = createContext(false);
@@ -25,13 +26,20 @@ export function CartProvider({ children }) {
             const updateCart = cart.map((item) => {
                 if (item.id === id) {
                     return item.quantity > 1
-                    ? {...item, quantity: item.quantity - 1}
-                    : null;
+                        ? { ...item, quantity: item.quantity - 1 }
+                        : null;
                 }
                 return item;
             }).filter((item) => item != null);
             setCart(updateCart);
         } else {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "No existe este producto en el carrito para quitarlo!",
+                showConfirmButton: false,
+                timer: 2000
+            });
             console.log("No existe este producto en el carrito para quitarlo!");
         }
     }
