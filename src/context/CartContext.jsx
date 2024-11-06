@@ -1,11 +1,20 @@
 import Swal from 'sweetalert2';
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext(false);
 
 export function CartProvider({ children }) {
 
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(() => {
+        const savedCart = localStorage.getItem('cart');
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
+
+    useEffect(() => {
+        if (cart.length > 0) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    }, [cart]);
 
     const addItem = (product) => {
 
@@ -50,6 +59,7 @@ export function CartProvider({ children }) {
 
     const clearCart = () => {
         setCart([]);
+        localStorage.removeItem('cart');
     }
 
     const getTotals = () => {

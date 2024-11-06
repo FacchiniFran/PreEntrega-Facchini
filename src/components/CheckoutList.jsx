@@ -15,7 +15,8 @@ export default function CheckoutList() {
         name: '',
         lastName: '',
         phone: '',
-        email: ''
+        email: '',
+        emailV: ''
     })
 
     const [cart, , , , , clearCart] = useContext(CartContext);
@@ -29,6 +30,18 @@ export default function CheckoutList() {
     }));
 
     const handleClickSend = () => {
+
+        if (formData.email !== formData.emailV) {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Los correos electrónicos no coinciden. Por favor, verifica e intenta nuevamente.",
+                showConfirmButton: true,
+                confirmButtonText: "Ok"
+            });
+            return;
+        }
+
         const newOrder = {
             buyer: {
                 name: formData.name,
